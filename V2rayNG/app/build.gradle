@@ -22,14 +22,14 @@ android {
 
     signingConfigs {
         release {
-            storeFile file("../key.jks")
-            keyAlias 'ang'
+            storeFile file("../gxyun.keystore")
+            keyAlias 'androidkey'
             keyPassword '123456'
             storePassword '123456'
         }
         debug {
-            storeFile file("../key.jks")
-            keyAlias 'ang'
+            storeFile file("../gxyun.keystore")
+            keyAlias 'androidkey'
             keyPassword '123456'
             storePassword '123456'
         }
@@ -114,8 +114,9 @@ dependencies {
 
 buildscript {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         google()
-        jcenter()
+//        jcenter()
         maven { url 'https://maven.google.com' }
     }
     dependencies {
