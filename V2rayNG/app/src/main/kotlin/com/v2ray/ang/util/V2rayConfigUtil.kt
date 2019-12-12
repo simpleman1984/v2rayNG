@@ -178,7 +178,7 @@ object V2rayConfigUtil {
                     user?.level = 8
 
                     //Mux
-                    val muxEnabled = false//app.defaultDPreference.getPrefBoolean(SettingsActivity.PREF_MUX_ENABLED, false)
+                    val muxEnabled = true//app.defaultDPreference.getPrefBoolean(SettingsActivity.PREF_MUX_ENABLED, false)
                     outbound.mux?.enabled = muxEnabled
 
                     //远程服务器底层传输配置
@@ -248,12 +248,12 @@ object V2rayConfigUtil {
                 "kcp" -> {
                     val kcpsettings = V2rayConfig.OutboundBean.StreamSettingsBean.KcpsettingsBean()
                     kcpsettings.mtu = 1350
-                    kcpsettings.tti = 50
-                    kcpsettings.uplinkCapacity = 12
+                    kcpsettings.tti = 12
+                    kcpsettings.uplinkCapacity = 100
                     kcpsettings.downlinkCapacity = 100
-                    kcpsettings.congestion = false
-                    kcpsettings.readBufferSize = 1
-                    kcpsettings.writeBufferSize = 1
+                    kcpsettings.congestion = true
+                    kcpsettings.readBufferSize = 8
+                    kcpsettings.writeBufferSize = 8
                     kcpsettings.header = V2rayConfig.OutboundBean.StreamSettingsBean.KcpsettingsBean.HeaderBean()
                     kcpsettings.header.type = vmess.headerType
                     streamSettings.kcpsettings = kcpsettings
